@@ -1,0 +1,34 @@
+{
+  "name": "csv_default",
+  "description": "通用CSV数据默认配置模板，自动匹配标准列名",
+  "source_type": "csv",
+  "encoding": "utf-8",
+  "separator": "auto",
+  "header_rows": 1,
+  "skip_rows": 0,
+  "skip_footer": 0,
+  "comment_char": "#",
+  "column_mappings": [
+    {"source_column": "time", "standard_column": "time", "data_type": "datetime", "default_value": null, "transform": ""},
+    {"source_column": "timestamp", "standard_column": "time", "data_type": "datetime", "default_value": null, "transform": ""},
+    {"source_column": "lat", "standard_column": "lat", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "lon", "standard_column": "lon", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "mmsi", "standard_column": "mmsi", "data_type": "str", "default_value": "", "transform": ""},
+    {"source_column": "speed", "standard_column": "speed", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "course", "standard_column": "course", "data_type": "float", "default_value": null, "transform": ""}
+  ],
+  "unit_conversions": [],
+  "time_format": {
+    "source_format": "auto",
+    "source_timezone": "UTC",
+    "target_timezone": "UTC",
+    "column_name": "time"
+  },
+  "file_patterns": ["*.csv", "*.txt"],
+  "extension_hints": [".csv", ".txt"],
+  "column_hints": [],
+  "content_hints": [],
+  "min_columns": 1,
+  "max_columns": 999,
+  "match_weight": 0.8
+}

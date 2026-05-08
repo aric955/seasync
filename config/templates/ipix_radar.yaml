@@ -1,0 +1,33 @@
+# SeaSync V2.2 — IPIX 雷达 DAT 解析模板
+# 适用于 IPIX (McMaster IPIX) 雷达实验数据
+# IPIX 雷达数据为文本格式 CSV，列包含时间、距离、方位、幅度
+
+sensor_type: "ipix_radar"
+mode: 3                          # 文本模式
+separator: ","                   # 逗号分隔
+encoding: "utf-8"                # UTF-8 编码
+
+# 列名映射 (别名表已有列名识别，此处为补充映射)
+columns:
+  time:       "timestamp"        # 时间列名
+  range:      "range"            # 距离列 (米)
+  azimuth:    "azimuth"          # 方位角列 (度)
+  amplitude:  "amplitude"        # 幅度/强度列
+  lat:        "latitude"         # 纬度
+  lon:        "longitude"        # 经度
+
+# IPIX 特有的解析配置
+polar_mode: true                 # 原始数据为极坐标格式
+polarification: "HH"             # 极化方式
+
+# 雷达原点 (McMaster IPIX 实验位置)
+origin_lat: 43.2600             # 实验地点纬度
+origin_lon: -79.9200            # 实验地点经度
+
+# 单位转换
+unit_map: {}                     # 已是标准单位
+
+# 元数据
+description: "McMaster IPIX 雷达实验数据 (文本DAT格式)"
+reference: "https://soma.ece.mcmaster.ca/ipix/"
+version: "1.0"

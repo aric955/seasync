@@ -1,0 +1,35 @@
+{
+  "name": "radar_default",
+  "description": "雷达数据默认配置模板，支持含方位/距离/帧序号的CSV格式雷达数据",
+  "source_type": "radar",
+  "encoding": "utf-8",
+  "separator": ",",
+  "header_rows": 1,
+  "skip_rows": 0,
+  "skip_footer": 0,
+  "comment_char": "",
+  "column_mappings": [
+    {"source_column": "帧序号", "standard_column": "track_id", "data_type": "int", "default_value": null, "transform": ""},
+    {"source_column": "起始时间(帧)", "standard_column": "time", "data_type": "datetime", "default_value": null, "transform": ""},
+    {"source_column": "目标编号", "standard_column": "mmsi", "data_type": "str", "default_value": "", "transform": ""},
+    {"source_column": "目标方位(°)", "standard_column": "course", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "目标距离(米)", "standard_column": "range", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "目标类型", "standard_column": "target_type", "data_type": "str", "default_value": "", "transform": ""}
+  ],
+  "unit_conversions": [
+    {"column": "target_distance", "source_unit": "m", "target_unit": "km", "conversion_factor": 0.001}
+  ],
+  "time_format": {
+    "source_format": "%Y-%m-%d %H:%M:%S",
+    "source_timezone": "UTC+8",
+    "target_timezone": "UTC",
+    "column_name": "time"
+  },
+  "file_patterns": ["*radar*", "*radar*.csv"],
+  "extension_hints": [".csv"],
+  "column_hints": ["目标方位", "目标距离", "帧序号"],
+  "content_hints": ["AT", "RT", "CDT"],
+  "min_columns": 5,
+  "max_columns": 50,
+  "match_weight": 1.2
+}

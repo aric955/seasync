@@ -1,0 +1,26 @@
+# SeaSync 雷达数据 MAT 文件配置模板
+# 适用场景：MATLAB 导出的雷达点迹数据 (.mat)
+# 包含 target_range + target_azimuth 等变量
+
+source_type: matlab
+description: "MATLAB 雷达点迹数据模板"
+
+# 变量名映射（手动指定，覆盖自动识别）
+field_mapping:
+  timestamp: "frame_time"
+  range: "target_range"
+  azimuth: "target_azimuth"
+  snr: "target_snr_db"
+  target_type: "target_type_code"
+
+# 雷达站原点坐标（极坐标转经纬度必需）
+origin_lat: 38.0
+origin_lon: 121.0
+
+# datenum 自动转换
+use_datenum_conversion: true
+
+# 数据后处理
+postprocess:
+  range_unit: "m"        # 距离单位（m / nm）
+  azimuth_unit: "deg"    # 方位角单位（deg / rad）

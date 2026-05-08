@@ -1,0 +1,36 @@
+{
+  "name": "ais_default",
+  "description": "AIS数据默认配置模板，支持含MMSI/经纬度/航速航向的AIS CSV数据",
+  "source_type": "ais",
+  "encoding": "utf-8",
+  "separator": ",",
+  "header_rows": 1,
+  "skip_rows": 0,
+  "skip_footer": 0,
+  "comment_char": "",
+  "column_mappings": [
+    {"source_column": "MMSI", "standard_column": "mmsi", "data_type": "str", "default_value": "", "transform": ""},
+    {"source_column": "时间", "standard_column": "time", "data_type": "datetime", "default_value": null, "transform": ""},
+    {"source_column": "纬度", "standard_column": "lat", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "经度", "standard_column": "lon", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "航速", "standard_column": "speed", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "对地航向", "standard_column": "course", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "船艏向", "standard_column": "heading", "data_type": "float", "default_value": null, "transform": ""}
+  ],
+  "unit_conversions": [
+    {"column": "speed", "source_unit": "kn", "target_unit": "m/s", "conversion_factor": 0.514444}
+  ],
+  "time_format": {
+    "source_format": "%Y-%m-%d %H:%M:%S",
+    "source_timezone": "UTC+8",
+    "target_timezone": "UTC",
+    "column_name": "time"
+  },
+  "file_patterns": ["*ais*", "*ais*.csv"],
+  "extension_hints": [".csv", ".nmea"],
+  "column_hints": ["MMSI", "纬度", "经度", "航速"],
+  "content_hints": ["MMSI", "SOG", "COG"],
+  "min_columns": 3,
+  "max_columns": 50,
+  "match_weight": 1.2
+}

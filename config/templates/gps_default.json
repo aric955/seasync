@@ -1,0 +1,34 @@
+{
+  "name": "gps_default",
+  "description": "GPS/GPX数据默认配置模板，支持含经纬度/时间/海拔的GPS数据",
+  "source_type": "gps",
+  "encoding": "utf-8",
+  "separator": ",",
+  "header_rows": 1,
+  "skip_rows": 0,
+  "skip_footer": 0,
+  "comment_char": "",
+  "column_mappings": [
+    {"source_column": "lat", "standard_column": "lat", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "lon", "standard_column": "lon", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "latitude", "standard_column": "lat", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "longitude", "standard_column": "lon", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "time", "standard_column": "time", "data_type": "datetime", "default_value": null, "transform": ""},
+    {"source_column": "speed", "standard_column": "speed", "data_type": "float", "default_value": null, "transform": ""},
+    {"source_column": "course", "standard_column": "course", "data_type": "float", "default_value": null, "transform": ""}
+  ],
+  "unit_conversions": [],
+  "time_format": {
+    "source_format": "auto",
+    "source_timezone": "UTC",
+    "target_timezone": "UTC",
+    "column_name": "time"
+  },
+  "file_patterns": ["*gps*", "*gpx*", "*rmc*", "*nmea*"],
+  "extension_hints": [".csv", ".gpx", ".nmea"],
+  "column_hints": ["lat", "lon", "latitude", "longitude"],
+  "content_hints": ["$GPGGA", "$GPRMC", "lat"],
+  "min_columns": 2,
+  "max_columns": 50,
+  "match_weight": 1.0
+}

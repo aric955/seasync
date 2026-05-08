@@ -1,0 +1,32 @@
+# SeaSync V2.2 — 海军雷达 DAT 解析模板
+# 适用于海军/海事雷达系统导出的结构化二进制 DAT 文件
+# 记录长度: 64 字节 / 条
+
+sensor_type: "navy_radar"
+mode: 1                          # 结构化二进制
+record_length: 64                # 固定记录长度 64 字节
+skip_bytes: 0                    # 无头部跳过
+
+# 列布局: {标准列名: (字节偏移, struct格式字符)}
+# 所有偏移从记录起始字节 0 开始计数
+columns:
+  time:       [0,  "d"]          # double, 8字节, Unix时间戳
+  range:      [8,  "f"]          # float,  4字节, 距离(海里)
+  azimuth:    [12, "f"]          # float,  4字节, 方位角(度)
+  snr_db:     [16, "f"]          # float,  4字节, 信噪比(dB)
+  lat:        [20, "d"]          # double, 8字节, 纬度(度)
+  lon:        [28, "d"]          # double, 8字节, 经度(度)
+  speed:      [36, "f"]          # float,  4字节, 航速(节)
+  course:     [40, "f"]          # float,  4字节, 航向(度)
+  mmsi:       [44, "I"]          # uint32, 4字节, MMSI编号
+  target_type: [48, "B"]         # uint8,  1字节, 目标类型代码
+  # 剩余 15 字节保留/填充
+
+# 单位转换 (标准单位: 米, 米/秒)
+unit_map:
+  range: 1852.0                  # 海里 → 米
+  speed: 0.514444                # 节 → 米/秒
+
+# 元数据
+description: "海军雷达结构化二进制DAT格式"
+version: "1.0"

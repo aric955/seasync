@@ -1,0 +1,24 @@
+# SeaSync 海浪数据 MAT 文件配置模板
+# 适用场景：MATLAB 导出的海浪谱/波高数据 (.mat)
+# 包含 significant_wave_height, wave_direction, wave_period 等变量
+
+source_type: matlab
+description: "MATLAB 海浪数据模板"
+
+# 变量名映射
+field_mapping:
+  timestamp: "time"
+  lat: "latitude"
+  lon: "longitude"
+  range: "significant_wave_height"   # 有效波高映射到 range
+  azimuth: "wave_direction"          # 浪向映射到 azimuth
+  speed: "wave_period"               # 周期映射到 speed
+
+# datenum 自动转换
+use_datenum_conversion: true
+
+# 数据后处理
+postprocess:
+  wave_height_unit: "m"
+  direction_unit: "deg"
+  period_unit: "s"

@@ -1,0 +1,28 @@
+{
+  "name": "nmea_default",
+  "description": "NMEA 0183 海用报文默认配置模板，支持$GP/$AI句子解析",
+  "source_type": "ais",
+  "encoding": "utf-8",
+  "separator": ",",
+  "header_rows": 0,
+  "skip_rows": 0,
+  "skip_footer": 0,
+  "comment_char": "",
+  "column_mappings": [
+    {"source_column": "raw_sentence", "standard_column": "raw", "data_type": "str", "default_value": "", "transform": ""}
+  ],
+  "unit_conversions": [],
+  "time_format": {
+    "source_format": "auto",
+    "source_timezone": "UTC",
+    "target_timezone": "UTC",
+    "column_name": "time"
+  },
+  "file_patterns": ["*.nmea", "*.txt"],
+  "extension_hints": [".nmea", ".txt"],
+  "column_hints": ["$GP", "$AI", "$II"],
+  "content_hints": ["$GPGGA", "$GPRMC", "$AIVDM", "$AIVDO"],
+  "min_columns": 0,
+  "max_columns": 999,
+  "match_weight": 1.0
+}
