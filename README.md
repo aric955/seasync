@@ -148,7 +148,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ## 联系方式
 
 - 作者：荣火
-- 邮箱：li_jingjun@163.com
+- 邮箱：aric.lee@zohomail.com
 
 ---
 
@@ -157,4 +157,4 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 本项目的算法验证使用了以下公开数据集：
 - MTAD（多目标航迹关联数据集）
 - 雷达对海探测试验数据集
-- 金海豚挑战赛数据集
+
